@@ -1,0 +1,59 @@
+.greeting {
+    margin-top: 22vh;
+    margin-left: 12vw;
+    font-family: sans-serif;
+    font-weight: 900;
+    width: 25vw;
+    background: linear-gradient( #FFFFFF 0.41%, rgba(255, 255, 255, 0) 123.04%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    .firstWord {
+        font-size: 15vh;
+        line-height: 10vh;
+    }
+    .secondWord {
+        font-size: 14.5vh;
+        line-height: 10vh;
+    }
+    .thirdWord {
+        font-size: 14vh;
+        line-height: 10vh;
+    }
+    .and {
+        font-size: 4vh;
+    }
+    .fourthWord {
+        font-size: 8vh;
+        line-height: 10vh;
+    }
+}
+
+#LampPos {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12vw;
+    
+}
+
+.lightSource {
+    width: 10vw;
+    height: 10vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#Illustration {
+    position: absolute;
+    right: 0;
+    bottom: -1vh;
+    width: 40vw;
+}
+
+#Lamp {
+    position: relative;
+}

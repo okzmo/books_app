@@ -1,0 +1,66 @@
+@import './colors.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $textColor;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: $bgColor;
+    overflow: hidden;
+}
+
+.link {
+    text-decoration: none;
+    &:focus {
+        transition: text-decoration 0.25s ease;
+        outline: none;
+        text-decoration: underline;
+    }
+}
+
+.category__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24vh;
+}
+
+.titlePageCategory {
+    font-weight: 900;
+    -webkit-text-stroke: 2px #fff;
+    color: transparent; 
+    font-size: 20vh;
+    line-height: 25vh;
+}
+
+.explication {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2vh;
+    margin-bottom: 3.5vh;
+}
+
+#searchBarCategory {
+    color: $textColorSearch;
+    padding: 1.3vh 1.4vw;
+    width: 35vw;
+    border-radius: 2vh;
+    background-color: $bgColorSearch;
+    border: none;
+    &:focus {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+input {
+    outline: 0px solid rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+    transition: outline 0.25s ease, color 0.25s ease;
+    outline: 2px solid rgba(255, 255, 255, 0.7);
+}
