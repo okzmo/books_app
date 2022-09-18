@@ -1,0 +1,29 @@
+.singleBook__container {
+    position: relative;
+}
+
+.singleBook__title {
+    position: absolute;
+    bottom: 4vh;
+    left: 2.5vh;
+    font-weight: 600;
+    font-size: 4vh;
+    margin: 0 1vw 0 1vw;
+}
+
+#bookCover {
+    width: 20vw;
+    height: 50vh;
+    border-radius: 2vh;
+}
+
+.singleBook__img::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.157)    , rgb(0, 0, 0));
+    border-radius: 2vh;
+}

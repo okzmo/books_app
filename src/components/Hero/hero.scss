@@ -50,8 +50,9 @@
 #Illustration {
     position: absolute;
     right: 0;
-    bottom: -1vh;
+    bottom: 0vh;
     width: 40vw;
+    overflow: hidden;
 }
 
 #Lamp {

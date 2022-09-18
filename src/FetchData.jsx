@@ -6,18 +6,19 @@ const BooksContext = ({children}) => {
     const [searchText, setSearchText] = useState("");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
+    let offset = 0;
 
     const fetchBooks = useCallback(async() => {
         setLoading(true);
         try{
-            const res = await fetch(`http://openlibrary.org/search.json?q=${searchText}`);
+            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=${offset}&q=${searchText}`);
             const data = await res.json();
             const {docs} = data;
 
             if(docs){
-                const allBooks = docs.slice(0, 20).map((book) => {
+                const allBooks = docs.map((book) => {
                     const {key, author_name, cover_i, edition_count, first_publish_year, title} = book;
-
+ 
                     return {
                         id: key,
                         author: author_name,
@@ -28,12 +29,18 @@ const BooksContext = ({children}) => {
                     }
                 });
 
-                setBooks(allBooks);
+                allBooks.forEach((book, index) => {
+                    if(book.cover_id === undefined) {
+                        allBooks.splice(index, 1)
+                    }
+                })
+                
                 console.log(docs)
-
+                setBooks((oldAllBooks) => [...oldAllBooks, ...allBooks]);
             } else {
                 setBooks([]);
             }
+            offset += 15;
             setLoading(false);
         } catch(error){
             console.log(error);
@@ -47,7 +54,7 @@ const BooksContext = ({children}) => {
     
     return (
         <AppContext.Provider value = {{
-            loading, books, setSearchText
+            loading, books, setSearchText, searchText, fetchBooks
         }}>
             {children}
         </AppContext.Provider>

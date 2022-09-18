@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./hero.scss";
 import lamp from '../../images/Lamp.png'
 import illustration from '../../images/Illustration.png'
 
 function Hero() {
+
   return (
     <div className="hero">
       <h1 className="greeting">
