@@ -16,7 +16,7 @@
     font-weight: 900;
     line-height: 25vh;
     color: $bgColor;
-    background: linear-gradient(to bottom, white, transparent 80%);
+    background: linear-gradient(to bottom, $textColor, transparent 80%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-stroke: 1vh transparent;

@@ -5,20 +5,21 @@ const AppContext = React.createContext();
 const BooksContext = ({children}) => {
     const [searchText, setSearchText] = useState("");
     const [books, setBooks] = useState([]);
-    const [loading, setLoading] = useState(true);
-    let offset = 0;
+    const [loading, setLoading] = useState(false);
+    const [loadMore, setLoadMore] = useState(false);
+    let offset = 15;
 
     const fetchBooks = useCallback(async() => {
         setLoading(true);
         try{
-            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=${offset}&q=${searchText}`);
+            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=0&q=${searchText}`);
             const data = await res.json();
             const {docs} = data;
 
             if(docs){
-                const allBooks = docs.map((book) => {
+                let allBooks = docs.map((book) => {
                     const {key, author_name, cover_i, edition_count, first_publish_year, title} = book;
- 
+                    
                     return {
                         id: key,
                         author: author_name,
@@ -28,19 +29,15 @@ const BooksContext = ({children}) => {
                         title: title
                     }
                 });
-
-                allBooks.forEach((book, index) => {
-                    if(book.cover_id === undefined) {
-                        allBooks.splice(index, 1)
-                    }
+                
+                allBooks = allBooks.filter((book) => {
+                    return book.cover_id !== undefined;
                 })
                 
-                console.log(docs)
-                setBooks((oldAllBooks) => [...oldAllBooks, ...allBooks]);
+                setBooks(allBooks);
             } else {
                 setBooks([]);
             }
-            offset += 15;
             setLoading(false);
         } catch(error){
             console.log(error);
@@ -48,13 +45,50 @@ const BooksContext = ({children}) => {
         }
     }, [searchText]);
 
+    const fetchNewBooks = async () => {
+        setLoadMore(true);
+        try{
+            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=${offset}&q=${searchText}`);
+            const data = await res.json();
+            const {docs} = data;
+
+            if(docs){
+                let allBooks = docs.map((book) => {
+                    const {key, author_name, cover_i, edition_count, first_publish_year, title} = book;
+                    
+                    return {
+                        id: key,
+                        author: author_name,
+                        cover_id: cover_i,
+                        edition_count: edition_count,
+                        first_publish_year: first_publish_year,
+                        title: title
+                    }
+                });
+                
+                allBooks = allBooks.filter((book) => {
+                    return book.cover_id !== undefined;
+                })
+
+                setBooks((oldAllBooks) => [...oldAllBooks, ...allBooks]);
+            } else {
+                setBooks([]);
+            }
+            offset += 15;
+            setLoadMore(false);
+        } catch(error){
+            console.log(error);
+            setLoadMore(false);
+        }
+    }
+
     useEffect(() => {
         fetchBooks();
     }, [searchText, fetchBooks]);
     
     return (
         <AppContext.Provider value = {{
-            loading, books, setSearchText, searchText, fetchBooks
+            loadMore, loading, books, setSearchText, fetchBooks, fetchNewBooks
         }}>
             {children}
         </AppContext.Provider>

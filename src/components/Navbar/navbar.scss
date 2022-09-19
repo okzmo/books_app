@@ -21,7 +21,7 @@
             padding: 1vh 1vw 1vh 1vw;
             font-size: 1.5vh;
             &:focus {
-                color: rgba(255, 255, 255, 0.7);
+                color: $textColor;
             }
         }
         .hamburger_menu {

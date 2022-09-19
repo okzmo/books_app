@@ -51,15 +51,15 @@ body {
     background-color: $bgColorSearch;
     border: none;
     &:focus {
-        color: rgba(255, 255, 255, 0.7);
+        color: $textColor;
     }
 }
 
 input {
-    outline: 0px solid rgba(255, 255, 255, 0.5);
+    outline: 0px solid $textColor;
 }
 
 input:focus {
     transition: outline 0.25s ease, color 0.25s ease;
-    outline: 2px solid rgba(255, 255, 255, 0.7);
+    outline: 2px solid $textColor;
 }

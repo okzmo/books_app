@@ -14,8 +14,8 @@ function Navbar() {
     e.preventDefault();
     if(!(searchRef.current.value.trim().length === 0)) {
       setSearchText(searchRef.current.value.trim());
+      navigate('/books')
     }
-    navigate('/books')
   }
 
   return (
