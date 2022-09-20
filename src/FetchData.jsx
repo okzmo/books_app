@@ -12,7 +12,7 @@ const BooksContext = ({children}) => {
     const fetchBooks = useCallback(async() => {
         setLoading(true);
         try{
-            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=0&q=${searchText}`);
+            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=0&title=${searchText}`);
             const data = await res.json();
             const {docs} = data;
 
@@ -48,7 +48,7 @@ const BooksContext = ({children}) => {
     const fetchNewBooks = async () => {
         setLoadMore(true);
         try{
-            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=${offset}&q=${searchText}`);
+            const res = await fetch(`http://openlibrary.org/search.json?limit=15&offset=${offset}&title=${searchText}`);
             const data = await res.json();
             const {docs} = data;
 

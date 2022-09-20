@@ -7,6 +7,7 @@ function BookDetails() {
     const {id} = useParams();
     const [loading, setLoading] = useState(false);
     const [book, setBook] = useState(null);
+    const [readMore, setReadMore] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -17,7 +18,7 @@ function BookDetails() {
 
                 if(data) {
                     const {description, title, covers, subjects, subject_places, subject_times} = data;
-                    console.log(data)
+                    
                     const newBook = {
                         description: description === undefined || description.value === undefined ? 'No description found.' : description ? description.value : 'No description found.' ,
                         title: title,
@@ -42,6 +43,16 @@ function BookDetails() {
     
     if(loading) return 'loading...'
 
+    const handleReadMore = (e) => {
+        if(readMore) {
+            setReadMore(false)
+            e.target.innerText = 'Read More...'
+        } else {
+            setReadMore(true)
+            e.target.innerText = 'Collapse'
+        }
+    }
+    
   return (
     <div className="bookDetails__container">
         <div className="bookDetailsVisuals">
@@ -52,7 +63,7 @@ function BookDetails() {
         </div>
         <div className="bookDetailsElements">
             <h2 className="bookTitle">{book?.title}</h2>
-            <p className="bookDescription">{book?.description.length > 500 ? <span>{book?.description.split(' ').slice(0,50).join(' ')+'... '}<span id="readMore">Read more</span></span> : book?.description}</p>
+            <p className="bookDescription">{book?.description.length > 500 ? <span className="bookLongDescription">{readMore ? book?.description : book?.description.split(' ').slice(0,50).join(' ')} <button id="readMoreBtn" onClick={handleReadMore}>Read More...</button></span> : book?.description}</p>
             <div className="subjectBox">
                 <p className="bookPlaces"><span className="importantInfo">Places</span> : {book?.subject_places}</p>
                 <p className="bookTime"><span className="importantInfo">Time</span> : {book?.subject_times}</p>

@@ -10,7 +10,7 @@ function BookList(book) {
           <img id="bookCover" src={book.cover_img} alt="cover" />
         </div>
         <div className="singleBook__title">
-          {book.title}
+          {book.title.length > 50 ? book.title.split(' ').slice(0,5).join(' ')+'...' : book.title}
         </div>
       </div>
     </Link>
