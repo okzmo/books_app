@@ -18,11 +18,12 @@ const BooksContext = ({children}) => {
 
             if(docs){
                 let allBooks = docs.map((book) => {
-                    const {key, author_name, cover_i, edition_count, first_publish_year, title} = book;
+                    const {key, author_name, author_key, cover_i, edition_count, first_publish_year, title} = book;
                     
                     return {
                         id: key,
                         author: author_name,
+                        author_id: author_key,
                         cover_id: cover_i,
                         edition_count: edition_count,
                         first_publish_year: first_publish_year,
@@ -34,6 +35,7 @@ const BooksContext = ({children}) => {
                     return book.cover_id !== undefined;
                 })
                 
+                console.log(allBooks)
                 setBooks(allBooks);
             } else {
                 setBooks([]);
