@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './Book.scss'
 import bookIllu from '../../images/bookIllu.png'
+import { Link } from 'react-router-dom'
 
 function BookDetails() {
     const {id} = useParams();
@@ -19,23 +20,24 @@ function BookDetails() {
                 console.log(dataBook)
                 const resAuthor = await fetch(`https://openlibrary.org/authors/${dataBook.authors[0].author.key.slice(9)}.json`)
                 const dataAuthor = await resAuthor.json();
+                console.log(dataAuthor)
                 
                 if(dataBook && dataAuthor) {
                     const {description, title, covers, subjects, subject_places, subject_times} = dataBook;
                     const { name } = dataAuthor;
 
                     const newBook = {
-                        description: description.value ? description.value : description ? description : 'Description not found.' ,
+                        description: !description ? 'No description Found' : typeof description === 'string' ? description : description.value,
                         title: title,
                         cover_img: `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`,
                         subjects: subjects ? subjects.join(', ') : 'No subjects found.',
                         subject_places: subject_places ? subject_places.join(', ') : 'No subject places found.',
                         subject_times: subject_times? subject_times.join(', ') : 'No subject times found.',
                     }
-                    console.log(newBook)
 
                     const newAuthor = {
                         name: name,
+                        id: dataBook.authors[0].author.key.slice(9),
                         photo: `https://covers.openlibrary.org/a/olid/${dataBook.authors[0].author.key.slice(9)}-M.jpg`
                     }
 
@@ -69,8 +71,8 @@ function BookDetails() {
     <div className="bookDetails__container">
         <div className="bookDetailsVisuals">
             <div className="backCover">
-                <img src={book?.cover_img} alt="cover" id="backCoverImg"/>
-                <img src={book?.cover_img} alt="cover" id="frontCoverImg" />
+                <img src={book?.cover_img} id="backCoverImg"/>
+                <img src={book?.cover_img} alt="Book cover" id="frontCoverImg"/>
             </div>
         </div>
         <div className="bookDetailsElements">
@@ -81,9 +83,11 @@ function BookDetails() {
                 <p className="bookTime"><span className="importantInfo">Time</span> : {book?.subject_times}</p>
             </div>
             <div className="authors">
-                <div className="authorContainer">
-                    <img id="authorPic" src={author?.photo} alt="" />
-                </div>
+                <Link to={`/author/${author?.id}`} {...author}>
+                    <div className="authorContainer">
+                        <img id="authorPic" src={author?.photo} alt="Author's picture" />
+                    </div>
+                </Link>
                 <h2 className="authorName">{author?.name}</h2>
             </div>
         </div>

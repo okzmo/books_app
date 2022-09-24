@@ -69,6 +69,7 @@
     margin: 6vh 4vw 0 6vw;
     position: relative;
     display: flex;
+    filter: brightness(0.85);
     &::after {
         position: absolute;
         content: "";

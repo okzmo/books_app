@@ -1,0 +1,40 @@
+@import '../../colors.scss';
+
+.author__wrapper {
+    display: flex;
+}
+
+#authorsPic {
+    width: 30vw;
+    height: 80vh; 
+    margin: 6vh 4vw 0 6vw;
+    box-shadow: 0.75vh 0.75vh 0 $textColor;
+    border: 0.3vh solid $textColor;
+    filter: brightness(0.85);
+}
+
+.AuthorsName {
+    font-weight: 800;
+    font-size: 12vh;
+    line-height: 11.5vh;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    text-shadow: 1vh 1vh 0 rgba(0, 0, 0, 1);
+}
+
+.AuthorBio {
+    font-weight: 400;
+    font-size: 2.5vh;
+    margin-bottom: 3.5vh;
+    margin-top: 2vh;
+    width: 45vw;
+    text-align: justify;
+    padding: 2vh 1.5vw;
+    box-shadow: 0.75vh 0.75vh 0 $textColor;
+    border: 0.3vh solid $textColor;
+}
+
+.BirthDeathAuthor {
+    font-size: 3vh;
+    font-weight: 700;
+}
