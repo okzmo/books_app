@@ -22,3 +22,19 @@
     -webkit-text-stroke: 1vh transparent;
 
 }
+
+@media screen and (max-width: 768px){
+    .booklist_grid {
+        width: 96vw;
+        gap: 3vw;
+    }
+    .titleCategory {
+        font-size: 10vh;
+        left: 3vw;
+        top: 2vh;
+        background: linear-gradient(to bottom, $textColor, transparent 65%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-stroke: 1vh transparent;
+    }
+}

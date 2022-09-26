@@ -33,3 +33,18 @@
 .logo {
     font-size: 3vh;
 }
+
+@media screen and (max-width: 768px) {
+    #searchBar {
+        display: none;
+    }
+
+    .logo {
+        margin-left: 2vw;
+    }
+
+    .hamburger_menu {
+        font-size: 1.5vh;
+        margin-right: 2vw;
+    }
+}

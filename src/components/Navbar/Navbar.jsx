@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import "./navbar.scss";
 import { useNavigate, Link } from "react-router-dom";
 import { AppContext } from '../../FetchData';
@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <Link className="link" to="/">
-        <h1 className="logo">Books</h1>
+        <h1 className="logo">BK</h1>
       </Link>
       <div className="navbarRightSide__wrapper">
         <form onSubmit={handleSubmit}>

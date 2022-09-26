@@ -81,14 +81,7 @@ function BookDetails() {
             <div className="subjectBox">
                 <p className="bookPlaces"><span className="importantInfo">Places</span> : {book?.subject_places}</p>
                 <p className="bookTime"><span className="importantInfo">Time</span> : {book?.subject_times}</p>
-            </div>
-            <div className="authors">
-                <Link to={`/author/${author?.id}`} {...author}>
-                    <div className="authorContainer">
-                        <img id="authorPic" src={author?.photo} alt="Author's picture" />
-                    </div>
-                </Link>
-                <h2 className="authorName">{author?.name}</h2>
+                <p className="bookAuthor"><span className="importantInfo">Author</span> : <Link className="link" to={`/author/${author?.id}`} {...author}>{author?.name}</Link></p>
             </div>
         </div>
     </div>
