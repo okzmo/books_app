@@ -11,13 +11,13 @@
     font-weight: 600;
     font-size: 3vh;
     margin: 0 0.75vw 0 0.75vw;
-    color: rgba(255, 255, 255, 0.757);
+    color: $textColor;
 }
 
 #bookCover {
     width: 17vw;
     height: 50vh;
-    filter: grayscale(0.75);
+    filter: saturate(0.5);
     transform: scale(1);
     transition: filter 0.25s ease, transform 0.25s ease;
 }
@@ -41,7 +41,7 @@
 
     &:hover #bookCover {
         transform: scale(1.1);
-        filter: grayscale(0.25);
+        filter: saturate(0.75);
     }
 
     &:focus {
@@ -49,7 +49,7 @@
     }
 
     &:focus #bookCover  {
-        filter: grayscale(0.25);
+        filter: saturate(0.75);
         transform: scale(1.1);
     }
 }
@@ -82,6 +82,7 @@
         width: 100%;
         height: 100%;
         backdrop-filter: blur(1vw);
+        filter: saturate(0.5);
         border-radius: 0.5vw;
     }
 }
@@ -99,7 +100,7 @@
     left: 50%;
     z-index: 100;
     transform: translate(-50%, -50%);
-    filter: drop-shadow(0 0 1vw rgba(0, 0, 0, 0.5));
+    filter: saturate(0.5);
     border-radius: 1vw;
     width: 20vw;
     height: 50vh;
@@ -110,7 +111,7 @@
     font-size: 10vh;
     line-height: 11.5vh;
     margin-bottom: 5vh;
-    text-shadow: 1vh 1vh 0 rgba(0, 0, 0, 1);
+    text-shadow: 1vh 1vh 0 $textColorShadow;
 }
 
 .bookDescription {
@@ -134,20 +135,23 @@
 
 .bookPlaces {
     margin-bottom: 1vh;
-    font-size: 1.5vh;
+    font-size: 1.7vh;
+    font-weight: 600;
 }
 
 .bookTime {
     margin-bottom: 1vh;
-    font-size: 1.5vh;
+    font-size: 1.7vh;
+    font-weight: 600;
 }
 
 .bookAuthor {
-    font-size: 1.5vh;
+    font-size: 1.7vh;
+    font-weight: 600;
 }
 
 .importantInfo {
-    font-size: 2vh;
+    font-size: 2.3vh;
     font-weight: 700;
 }
 
@@ -170,40 +174,6 @@
     }
 }
 
-.authors {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-    position: relative;
-}
-
-.authorContainer {
-    position: relative;
-    width: 11vw;
-    box-shadow: 0.75vh 0.75vh 0 $textColor;
-    border: 0.3vh solid $textColor;
-    overflow: hidden;
-    &:hover #authorPic {    
-        transform: scale(1.075);
-    }
-}
-
-#authorPic {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.25s ease;
- }
- 
- .authorName {
-    position: absolute;
-    bottom: 1vh;
-    left: 13vw;
-    font-size: 10vh;
-    font-weight: 900;
-    width: 14vw;
-    line-height: 8vh;
-    text-shadow: 1vh 1vh 0 rgba(0, 0, 0, 1);
- }
-
  @media screen and (max-width: 768px){
     #bookCover {
         width: 46vw;
@@ -219,7 +189,7 @@
 
     .backCover {
         width: 90vw;
-        height: 80vh;
+        height: 65vh;
         &::after {
             border-radius: 3vw;
         }
@@ -241,10 +211,9 @@
 
     .bookTitle {
         font-weight: 800;
-        font-size: 12vh;
-        line-height: 10vh;
+        font-size: 8vh;
+        line-height: 8vh;
         margin-bottom: 5vh;
-        text-shadow: 1vh 1vh 0 rgba(0, 0, 0, 1);
     }
     
     .bookDescription {
@@ -258,7 +227,7 @@
     
     .subjectBox {
         width: 87vw;
-        padding: 2vh 1.5vw;
+        padding: 2vh 4vw;
         box-shadow: 0.75vh 0.75vh 0 $textColor;
         border: 0.3vh solid $textColor;
         margin-bottom: 3.5vh;

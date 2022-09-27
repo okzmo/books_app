@@ -5,11 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     color: $textColor;
-    font-family: sans-serif;
-}
-
-body {
-    background-color: $bgColor;
 }
 
 .link {
@@ -30,7 +25,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 24vh;
+    padding-top: 24vh;
 }
 
 .titlePageCategory {
@@ -47,29 +42,17 @@ body {
     margin-bottom: 3.5vh;
 }
 
-#searchBarCategory {
-    color: $textColorSearch;
-    padding: 1.3vh 1.4vw;
-    width: 35vw;
-    border-radius: 2vh;
-    background-color: $bgColorSearch;
-    border: none;
-    &:focus {
-        color: $textColor;
-    }
-}
-
 input {
     outline: 0px solid $textColor;
 }
 
 input:focus {
     transition: outline 0.25s ease, color 0.25s ease;
-    outline: 2px solid $textColor;
+    outline: 0.3vh solid $textColor;
 }
 
 @media screen and (max-width: 768px){
     .category__wrapper {
-        margin-top: 10vh;
+        padding-top: 10vh;
     }
 }

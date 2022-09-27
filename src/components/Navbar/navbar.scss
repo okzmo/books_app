@@ -21,11 +21,11 @@
             padding: 1vh 1vw 1vh 1vw;
             font-size: 1.5vh;
             &:focus {
-                color: $textColor;
+                color: $textColorSearch;
             }
         }
         .hamburger_menu {
-            font-size: 1.5vh;
+            font-size: 2vh;
         }
     }
 }
@@ -40,11 +40,13 @@
     }
 
     .logo {
-        margin-left: 2vw;
+        margin-left: 9px;
+        font-size: 20px;
     }
 
-    .hamburger_menu {
-        font-size: 1.5vh;
-        margin-right: 2vw;
+    .navbarRightSide__wrapper {
+        .hamburger_menu {
+            margin-right: 9px;
+        }
     }
 }

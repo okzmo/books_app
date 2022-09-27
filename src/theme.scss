@@ -1,0 +1,131 @@
+@import './colors.scss';
+
+#light {
+    background-color: $bgColorLight;
+    transition: background-color 0.25s ease;
+}
+
+#dark {
+    background-color: $bgColor;
+    transition: background-color 0.25s ease;
+}
+
+#light .greeting {
+    color: $textColorGradientLight;
+    text-shadow: 1vh 1vh 0 $textColorShadowLight;
+}
+
+#light .logo {
+    color: $textColorLight;
+}
+
+#light #searchBar {
+    background-color: $bgColorSearchLight;
+    color: $textColorLightSearch;
+    &:focus {
+        color: $textColorLightSearch;
+    }
+}
+
+#light input {
+    outline: 0px solid $textColorGradientLight;
+    &:focus {
+        outline: 2px solid $textColorGradientLight;
+    }
+}
+
+#light * {
+    color: $textColorLight;
+}
+
+#light ::selection {
+    color: $bgColorLight;
+    background: $textColorGradientLight;
+}
+
+#dark ::selection {
+    color: $bgColor;
+    background: $textColor;
+}
+
+#light #searchBarPhone {
+    color: $textColorLightSearch;
+    background-color: $bgColorSearchLight;
+    &:focus {
+        color: $textColorLightSearch;
+    }
+}
+
+#light .titleCategory {
+    color: $bgColorLight;
+    background: linear-gradient(to bottom, $textColorLight, transparent 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: 1vh transparent;
+
+}
+
+#light .singleBook__title {
+    color: $textColorLight;
+}
+
+#light #bookCover {
+    filter: saturate(0.6);
+}
+
+#light .bookCard {
+    &:hover #bookCover {
+        filter: saturate(1);
+    }
+
+    &:focus #bookCover  {
+        filter: saturate(1);
+    }
+}
+
+#light .singleBook__img::after {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.157)    , #81868e);
+}
+
+#light .bookDescription {
+    box-shadow: 0.75vh 0.75vh 0 $textColorLight;
+    border: 0.3vh solid $textColorLight;
+}
+
+#light .subjectBox {
+    box-shadow: 0.75vh 0.75vh 0 $textColorLight;
+    border: 0.3vh solid $textColorLight;
+}
+
+#light .bookTitle {
+    font-weight: 800;
+    font-size: 10vh;
+    line-height: 11.5vh;
+    margin-bottom: 5vh;
+    text-shadow: 1vh 1vh 0 $textColorShadowLight;
+}
+
+#light .backCover {
+    &::after {
+        filter: saturate(0.75);
+    }
+}
+
+#light #frontCoverImg {
+    filter: saturate(0.75);
+}
+
+#light .AuthorsName {
+    text-shadow: 1vh 1vh 0 $textColorShadowLight;
+}
+
+#light #authorsPic {
+    box-shadow: 0.75vh 0.75vh 0 $textColorLight;
+    border: 0.5vh solid $textColorLight;
+    filter: saturate(1);
+}
+
+#light .AuthorBio {
+    box-shadow: 0.75vh 0.75vh 0 $textColorLight;
+    border: 0.5vh solid $textColorLight;
+}

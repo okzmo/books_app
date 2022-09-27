@@ -1,7 +1,7 @@
 @import '../../colors.scss';
 
 .hero {
-    height: 92vh;
+    height: 93vh;
     width: 100vw;
     overflow: hidden;
 }
@@ -9,14 +9,11 @@
 .greeting {
     margin-top: 22vh;
     margin-left: 12vw;
-    font-family: sans-serif;
-    font-weight: 900;
-    width: 25vw;
-    background: linear-gradient( rgb(123, 83, 83) 0.41%, rgba(255,255,255,0) 123.04%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    font-weight: bold;
+    width: 23vw;
+    color: $textColor;
+    text-shadow: 0.75vh 0.75vh 0 $textColorShadow;
+    font-family:'Times New Roman', Times, serif;
     .firstWord {
         font-size: 15vh;
         line-height: 10vh;
@@ -40,6 +37,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 12vw;
+    z-index: 100;
     
 }
 
@@ -51,12 +49,18 @@
     left: 0;
 }
 
-#Illustration {
+.HeroIllustration {
     position: absolute;
     right: 0;
-    bottom: 0vh;
+    bottom: 0;
     width: 40vw;
+    height: 80vh;
     overflow: hidden;
+}
+
+#Illustration {
+    width: 100%;
+    height: 100%;
 }
 
 #Lamp {
@@ -68,35 +72,13 @@
 }
 
 @media screen and (max-width: 768px) {
-    #searchBarHero {
-        display: block;
-        position: absolute;
-        z-index: 100;
-        color: $textColorSearch;
-        background-color: $bgColorSearch;
-        border: none;
-        border-radius: 10vw;
-        padding: 0.5vh 1vw 0.5vh 1vw;
-        width: 20vw;
-        text-align: center;
-        font-size: 1.5vh;
-        bottom: 5vh;
-        left: 50%;
-        backdrop-filter: blur(10px);
-        transform: translateX(-50%);
-        transition: padding 0.25s ease-in-out, width 0.25s ease-in-out;
-        &:focus {
-            color: $textColor;
-            width: 40vw;
-            padding: 1vh 1vw 1vh 1vw;
-        }
+
+    .hero {
+        height: 93vh;
     }
 
-    #Illustration {
-        transform: scaleX(-1);
-        left: 0;
-        height: 60vh;
-        width: 120vw;
+    .HeroIllustration {
+        display: none;
     }
 
     #LampPos {
@@ -104,29 +86,28 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 70vw;
+        width: 60vw;
         
     }
 
     .greeting {
-        margin-top: 10vh;
-        margin-left: -2vw;
-        width: 98vw;
-        text-align: right;
+        margin-top: 20vh;
+        width: 250px;
+        text-align: left;
         .firstWord {
-            font-size: 14vh;
-            line-height: 10vh;
+            font-size: 100px;
+            line-height: 80px;
         }
         .secondWord {
-            font-size: 14vh;
-            line-height: 10vh;
+            font-size: 100px;
+            line-height: 80px;
         }
         .liaison {
-            font-size: 4.5vh;
+            font-size: 40px;
         }
         .fourthWord {
-            font-size: 8vh;
-            line-height: 7vh;
+            font-size: 70px;
+            line-height: 60px;
         }
     }
 }

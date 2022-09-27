@@ -1,47 +1,35 @@
-import React, { useEffect, useRef, useContext } from "react";
-import "./hero.scss";
-import lamp from '../../images/Lamp.png'
-import illustration from '../../images/Illustration.png'
-import { useNavigate } from "react-router-dom";
-import { AppContext } from '../../FetchData';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../../App';
+import './hero.scss';
+import '../../theme.scss';
+import lamp from '../../images/Lamp.png';
+import illustration from '../../images/Illustration.png';
+import SearchBarPhone from '../SearchBarPhone/SearchBarPhone';
+import lampLight from '../../images/Lamp-light.png';
+import illuLight from '../../images/Illustration-light.png';
 
 function Hero() {
+	const { theme } = useContext(ThemeContext);
 
-  const { setSearchText } = useContext(AppContext)
-  const searchRef = useRef('');
-  const navigate = useNavigate();
-
-  useEffect(() => searchRef.current.focus(), [])
-
-  const handleSubmit = (e) => { 
-    e.preventDefault();
-    if(!(searchRef.current.value.trim().length === 0)) {
-      setSearchText(searchRef.current.value.trim());
-      navigate('/books')
-    }
-  }
-
-  return (
-    <div className="hero">
-      <h1 className="greeting">
-        <span className="firstWord">LET'S </span>
-        <span className="secondWord">FIND </span>
-        <span className="liaison">A </span> 
-        <span className="fourthWord">BOOK</span>
-      </h1>
-      <img src={lamp} alt="" id="LampPos" />
-      <img src={illustration} alt="" id="Illustration" />
-      <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            name="searchBarHero"
-            placeholder="Search"
-            id="searchBarHero"
-            ref={searchRef}
-          />
-        </form>
-    </div>
-  );
+	return (
+		<div className='hero' id={theme}>
+			<h1 className='greeting'>
+				<span className='firstWord'>LET'S </span>
+				<span className='secondWord'>FIND </span>
+				<span className='liaison'>A </span>
+				<span className='fourthWord'>BOOK</span>
+			</h1>
+			<img src={theme === 'light' ? lampLight : lamp} alt='' id='LampPos' />
+			<div className='HeroIllustration'>
+				<img
+					src={theme === 'light' ? illuLight : illustration}
+					alt=''
+					id='Illustration'
+				/>
+			</div>
+			<SearchBarPhone />
+		</div>
+	);
 }
 
 export default Hero;
