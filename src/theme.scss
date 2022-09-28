@@ -22,6 +22,7 @@
 #light #searchBar {
     background-color: $bgColorSearchLight;
     color: $textColorLightSearch;
+
     &:focus {
         color: $textColorLightSearch;
     }
@@ -30,7 +31,7 @@
 #light input {
     outline: 0px solid $textColorGradientLight;
     &:focus {
-        outline: 2px solid $textColorGradientLight;
+        outline: 0.3vh solid $textColorGradientLight;
     }
 }
 

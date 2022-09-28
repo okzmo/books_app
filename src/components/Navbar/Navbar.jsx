@@ -30,7 +30,7 @@ function Navbar() {
 					<input
 						type='search'
 						name='searchBar'
-						placeholder='Search'
+						placeholder='The lord of the rings'
 						id='searchBar'
 						ref={searchRef}
 					/>
