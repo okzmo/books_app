@@ -70,7 +70,7 @@
 
 .backCover {
     width: 30vw;
-    height: 80vh;
+    min-height: 80vh;
     position: relative;
     display: flex;
     filter: brightness(0.85);
@@ -171,6 +171,7 @@
     border: none;
     &:hover {
         text-decoration: underline;
+        cursor: pointer;
     }
 }
 

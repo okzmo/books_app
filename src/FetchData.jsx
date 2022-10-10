@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useCallback } from 'react';
+import React, { useState, useEffect } from "react";
+import { useCallback } from "react";
 const AppContext = React.createContext();
 let offset = 0;
 
 const BooksContext = ({ children }) => {
-	const [searchText, setSearchText] = useState('');
+	const [searchText, setSearchText] = useState("");
 	const [books, setBooks] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [loadMore, setLoadMore] = useState(false);
@@ -44,8 +44,6 @@ const BooksContext = ({ children }) => {
 				allBooks = allBooks.filter((book) => {
 					return book.cover_id !== undefined;
 				});
-
-				console.log(allBooks);
 				setBooks(allBooks);
 			} else {
 				setBooks([]);
@@ -59,7 +57,6 @@ const BooksContext = ({ children }) => {
 
 	const fetchNewBooks = async () => {
 		offset += 15;
-		console.log(offset);
 		setLoadMore(true);
 		try {
 			const res = await fetch(
@@ -67,9 +64,6 @@ const BooksContext = ({ children }) => {
 			);
 			const data = await res.json();
 			const { docs } = data;
-			console.log(
-				`http://openlibrary.org/search.json?limit=15&offset=${offset}&title=${searchText}`
-			);
 
 			if (docs) {
 				let allBooks = docs.map((book) => {
