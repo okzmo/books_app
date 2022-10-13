@@ -1,4 +1,11 @@
 @import './colors.scss';
+@import url('./fonts/outfit.css');
+
+@font-face {
+    font-family: "Klarissa";
+    src: url('fonts/Klarissa.ttf');
+    font-style: normal;
+  }
 
 * {
     margin: 0;
@@ -18,14 +25,6 @@
     &:hover {
         text-decoration: underline;
     }
-}
-
-.category__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 24vh;
 }
 
 .titlePageCategory {
@@ -54,5 +53,9 @@ input:focus {
 @media screen and (max-width: 768px){
     .category__wrapper {
         padding-top: 10vh;
+    }
+
+    .link {
+        text-decoration: underline;
     }
 }

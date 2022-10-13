@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import './Book.scss';
-import { Link } from 'react-router-dom';
-import { ThemeContext } from '../../App';
+import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import "./Book.scss";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "../../App";
 
 function BookDetails() {
 	const { id } = useParams();
@@ -32,19 +32,19 @@ function BookDetails() {
 
 					const newBook = {
 						description: !description
-							? 'No description Found'
-							: typeof description === 'string'
+							? "No description Found"
+							: typeof description === "string"
 							? description
 							: description.value,
 						title: title,
 						cover_img: `https://covers.openlibrary.org/b/id/${covers[0]}-L.jpg`,
-						subjects: subjects ? subjects.join(', ') : 'No subjects found.',
+						subjects: subjects ? subjects.join(", ") : "No subjects found.",
 						subject_places: subject_places
-							? subject_places.join(', ')
-							: 'No subject places found.',
+							? subject_places.join(", ")
+							: "No subject places found.",
 						subject_times: subject_times
-							? subject_times.join(', ')
-							: 'No subject times found.',
+							? subject_times.join(", ")
+							: "No subject times found.",
 					};
 
 					setBook(newBook);
@@ -87,35 +87,35 @@ function BookDetails() {
 		getBook();
 	}, [id]);
 
-	if (loading) return 'loading...';
+	if (loading) return "loading...";
 
 	const handleReadMore = (e) => {
 		if (readMore) {
 			setReadMore(false);
-			e.target.innerText = 'Read More...';
+			e.target.innerText = "Read More...";
 		} else {
 			setReadMore(true);
-			e.target.innerText = 'Collapse';
+			e.target.innerText = "Collapse";
 		}
 	};
 
 	return (
-		<div className='bookDetails__container' id={theme}>
-			<div className='bookDetailsVisuals'>
-				<div className='backCover'>
-					<img src={book?.cover_img} id='backCoverImg' />
-					<img src={book?.cover_img} alt='Book cover' id='frontCoverImg' />
+		<div className="bookDetails__container" id={theme}>
+			<div className="bookDetailsVisuals">
+				<div className="backCover">
+					<img src={book?.cover_img} id="backCoverImg" />
+					<img src={book?.cover_img} alt="Book cover" id="frontCoverImg" />
 				</div>
 			</div>
-			<div className='bookDetailsElements'>
-				<h2 className='bookTitle'>{book?.title}</h2>
-				<p className='bookDescription'>
+			<div className="bookDetailsElements">
+				<h2 className="bookTitle">{book?.title}</h2>
+				<p className="bookDescription">
 					{book?.description.length > 500 ? (
-						<span className='bookLongDescription'>
+						<span className="bookLongDescription">
 							{readMore
 								? book?.description
-								: book?.description.split(' ').slice(0, 50).join(' ')}{' '}
-							<button id='readMoreBtn' onClick={handleReadMore}>
+								: book?.description.split(" ").slice(0, 50).join(" ")}{" "}
+							<button id="readMoreBtn" onClick={handleReadMore}>
 								Read More...
 							</button>
 						</span>
@@ -123,17 +123,17 @@ function BookDetails() {
 						book?.description
 					)}
 				</p>
-				<div className='subjectBox'>
-					<p className='bookPlaces'>
-						<span className='importantInfo'>Places</span> :{' '}
+				<div className="subjectBox">
+					<p className="bookPlaces">
+						<span className="importantInfo">Places</span> :{" "}
 						{book?.subject_places}
 					</p>
-					<p className='bookTime'>
-						<span className='importantInfo'>Time</span> : {book?.subject_times}
+					<p className="bookTime">
+						<span className="importantInfo">Time</span> : {book?.subject_times}
 					</p>
-					<p className='bookAuthor'>
-						<span className='importantInfo'>Author</span> :{' '}
-						<Link className='link' to={`/author/${author?.id}`} {...author}>
+					<p className="bookAuthor">
+						<span className="importantInfo">Author</span> :{" "}
+						<Link className="link" to={`/author/${author?.id}`} {...author}>
 							{author?.name}
 						</Link>
 					</p>

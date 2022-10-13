@@ -13,7 +13,7 @@
     width: 22vw;
     color: $textColor;
     text-shadow: 0.75vh 0.75vh 0 $textColorShadow;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Klarissa' !important;
     .firstWord {
         font-size: 15vh;
         line-height: 10vh;
@@ -27,7 +27,7 @@
     }
     .fourthWord {
         font-size: 11vh;
-        line-height: 8vh;
+        line-height: 9vh;
     }
 }
 
@@ -72,9 +72,11 @@
 }
 
 @media screen and (max-width: 768px) {
-
     .hero {
         height: 93vh;
+        display: flex;
+        justify-content: center;
+        padding-top: 250px;
     }
 
     .HeroIllustration {
@@ -91,8 +93,9 @@
     }
 
     .greeting {
-        margin-top: 20vh;
-        width: 250px;
+        margin-top: 0px;
+        margin-left: 0px;
+        width: 300px;
         text-align: left;
         .firstWord {
             font-size: 100px;
@@ -103,7 +106,7 @@
             line-height: 80px;
         }
         .liaison {
-            font-size: 40px;
+            font-size: 31px;
         }
         .fourthWord {
             font-size: 70px;

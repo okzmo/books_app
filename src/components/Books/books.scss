@@ -1,11 +1,16 @@
 @import '../../colors.scss';
 
-.booklist_grid {
-    display: flex;
-    gap: 1vw;
-    flex-wrap: wrap;
-    width: 90vw;
-    margin: 0 auto 2vh auto;
+.booklist {
+    display: grid;
+    font-family: "Outfit-Medium";
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 35vh);
+    grid-auto-rows: 1fr;
+    grid-gap: 0.7vh 0.7vw;
+}
+
+.bookPage {
+    padding-top: 24vh;
 }
 
 .titleCategory {
@@ -20,18 +25,29 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-stroke: 1vh transparent;
-
+    font-family: "Outfit-Bold";
+    pointer-events: none;
 }
 
 @media screen and (max-width: 768px){
-    .booklist_grid {
-        width: 96vw;
-        gap: 3vw;
+
+    .booklist {   
+        display: grid;
+        font-family: "Outfit-Medium";
+        justify-content: center;
+        grid-template-columns: repeat(auto-fill, 180px);
+        grid-auto-rows: 1fr;
+        grid-gap: 6px 6px;
     }
+    
+    .bookPage {
+        padding-top: 90px;
+    }
+
     .titleCategory {
         font-size: 10vh;
-        left: 3vw;
-        top: 2vh;
+        left: 45px;
+        top: 19px;
         background: linear-gradient(to bottom, $textColor, transparent 65%);
         -webkit-background-clip: text;
         background-clip: text;

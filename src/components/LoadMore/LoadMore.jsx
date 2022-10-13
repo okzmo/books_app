@@ -6,16 +6,12 @@ function LoadMore() {
 	const { fetchNewBooks } = React.useContext(AppContext);
 
 	React.useEffect(() => {
-		const options = {
-			threshold: 0.5,
-		};
-
 		const observer = new IntersectionObserver((entries) => {
 			if (entries[0].isIntersecting) {
 				console.log("fin");
 				fetchNewBooks();
 			}
-		}, options);
+		});
 
 		observer.observe(target.current);
 	}, []);

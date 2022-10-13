@@ -13,16 +13,24 @@ export const ThemeContext = createContext("dark");
 function App() {
 	const [theme, setTheme] = useState("dark");
 	const [disabled, setDisabled] = useState(false);
+	const { searchText } = BooksContext;
 
 	useEffect(() => {
 		setDisabled(true);
 		setTimeout(function () {
 			setDisabled(false);
 		}, 2000);
+
+		if (theme === "dark") {
+			document.querySelector("body").style.backgroundColor = "#4c565f";
+		} else {
+			document.querySelector("body").style.backgroundColor = "#eef7ff";
+		}
 	}, [theme]);
 
 	const toggleTheme = () => {
 		setTheme((curr) => (curr === "light" ? "dark" : "light"));
+		console.log(document.querySelector("body"));
 	};
 
 	return (
@@ -32,7 +40,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Hero />} />
 					<Route
-						path="/books"
+						path="/books/:id"
 						element={
 							<>
 								<Books />

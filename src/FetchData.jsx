@@ -44,6 +44,9 @@ const BooksContext = ({ children }) => {
 				allBooks = allBooks.filter((book) => {
 					return book.cover_id !== undefined;
 				});
+
+				console.log(allBooks);
+
 				setBooks(allBooks);
 			} else {
 				setBooks([]);
@@ -86,6 +89,10 @@ const BooksContext = ({ children }) => {
 					};
 				});
 
+				if (allBooks.length === 0) {
+					return;
+				}
+
 				allBooks = allBooks.filter((book) => {
 					return book.cover_id !== undefined;
 				});
@@ -100,10 +107,6 @@ const BooksContext = ({ children }) => {
 			setLoadMore(false);
 		}
 	};
-
-	useEffect(() => {
-		fetchBooks();
-	}, [searchText, fetchBooks]);
 
 	return (
 		<AppContext.Provider

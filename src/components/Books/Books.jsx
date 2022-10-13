@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "./books.scss";
 import { AppContext } from "../../FetchData";
 import { Book } from "../Book/Book";
@@ -13,21 +14,25 @@ const Default = () => {
 			<p className="explication">
 				Please, enter the name of the book or work you’re searching
 			</p>
-			<input
-				type="search"
-				name="searchBar"
-				id="searchBarCategory"
-				placeholder="Search"
-			/>
 		</>
 	);
 };
 
 function Books() {
-	const { books, loading, loadMore, fetchNewBooks } = useContext(AppContext);
+	const { books, loading, loadMore, fetchBooks, setSearchText } =
+		useContext(AppContext);
 	const { theme } = useContext(ThemeContext);
+	const { id } = useParams();
+	const nameBook = id.replaceAll("-", " ");
 	let anyBooks = books.length > 0;
-	const [isLast, setIsLast] = useState(false);
+
+	useEffect(() => {
+		setSearchText(nameBook);
+	}, [id]);
+
+	useEffect(() => {
+		fetchBooks();
+	}, [fetchBooks]);
 
 	const allBooks = books.map((book) => {
 		return {
@@ -39,21 +44,20 @@ function Books() {
 
 	if (loading) return "loading...";
 
-	const handleBooks = (e) => {
-		e.preventDefault();
-		fetchNewBooks();
-	};
-
 	return (
-		<div className="category__wrapper" id={theme}>
-			{anyBooks && (
-				<div className="booklist_grid">
-					<div className="titleCategory">BOOKS</div>
-					{allBooks.map((book, index) => {
-						return <Book key={index} book={book} />;
-					})}
-				</div>
-			)}
+		<div className="bookPage" id={theme}>
+			<div className="booklist__wrapper">
+				{anyBooks ? (
+					<div className="booklist">
+						<div className="titleCategory">BOOKS</div>
+						{allBooks.map((book, index) => {
+							return <Book key={index} book={book} />;
+						})}
+					</div>
+				) : (
+					<Default />
+				)}
+			</div>
 			<SearchBarPhone />
 			{loadMore && <div>Load more</div>}
 			{anyBooks && !loadMore && <LoadMore />}
