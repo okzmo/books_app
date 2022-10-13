@@ -2,21 +2,22 @@
 
 .singleBook__container {
     position: relative;
+    width: 100%;
 }
 
 .singleBook__title {
     position: absolute;
     bottom: 4vh;
     left: 2vh;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 3vh;
     margin: 0 0.75vw 0 0.75vw;
     color: $textColor;
 }
 
 #bookCover {
-    width: 17vw;
-    height: 50vh;
+    width: 100%;
+    height: 60vh;
     filter: saturate(0.5);
     transform: scale(1);
     transition: filter 0.25s ease, transform 0.25s ease;
@@ -32,12 +33,11 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.157)    , rgb(0, 0, 0));
 }
 
-
-
 .bookCard {
     transition: filter 0.5s ease;
     overflow: hidden;
     border-radius: 1vh;
+    width: 35vh;
 
     &:hover #bookCover {
         transform: scale(1.1);
@@ -62,6 +62,7 @@
     overflow-x: hidden;
     padding: 6vh 6vw 4vh 6vw;
     gap: 5vw;
+    height: 93vh;
 }
 
 .bookDetailsVisuals {
@@ -69,8 +70,8 @@
 }
 
 .backCover {
-    width: 30vw;
-    min-height: 80vh;
+    min-width: 27vw;
+    height: 75vh;
     position: relative;
     display: flex;
     filter: brightness(0.85);
@@ -101,21 +102,20 @@
     z-index: 100;
     transform: translate(-50%, -50%);
     filter: saturate(0.5);
-    border-radius: 1vw;
-    width: 20vw;
-    height: 50vh;
+    border-radius: 0.35vw;
+    width: 83%;
+    height: 63vh;
 }
 
 .bookTitle {
-    font-weight: 800;
     font-size: 10vh;
     line-height: 11.5vh;
     margin-bottom: 5vh;
     text-shadow: 1vh 1vh 0 $textColorShadow;
+    font-family: "Outfit-Bold";
 }
 
 .bookDescription {
-    font-weight: 400;
     font-size: 2.5vh;
     margin-bottom: 3.5vh;
     width: 45vw;
@@ -123,6 +123,7 @@
     padding: 2vh 1.5vw;
     box-shadow: 0.75vh 0.75vh 0 $textColor;
     border: 0.3vh solid $textColor;
+    font-family: "Outfit-Regular";
 }
 
 .subjectBox {
@@ -136,23 +137,25 @@
 .bookPlaces {
     margin-bottom: 1vh;
     font-size: 1.7vh;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: "Outfit-Medium";
 }
 
 .bookTime {
     margin-bottom: 1vh;
     font-size: 1.7vh;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: "Outfit-Medium";
 }
 
 .bookAuthor {
     font-size: 1.7vh;
-    font-weight: 600;
+    font-family: "Outfit-Bold";
 }
 
 .importantInfo {
     font-size: 2.3vh;
-    font-weight: 700;
+    font-family: "Outfit-Bold";
 }
 
 #readingPerson {
@@ -176,15 +179,19 @@
 }
 
  @media screen and (max-width: 768px){
+
+    .bookCard {
+        width: 180px;
+    }
+
     #bookCover {
-        width: 46vw;
-        height: 40vh;
+        width: 100%;
+        height: 330px;
     }
 
     .bookDetails__container {
         flex-direction: column;
         overflow-x: hidden;
-        padding: 3vh 6vw 4vh 6vw;
         gap: 5vw;
     }
 
@@ -192,7 +199,8 @@
         width: 90vw;
         height: 65vh;
         &::after {
-            border-radius: 3vw;
+            border-radius: 10px;
+            backdrop-filter: blur(20px);
         }
     }
     
