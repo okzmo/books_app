@@ -9,15 +9,12 @@
     grid-gap: 0.7vh 0.7vw;
 }
 
-.bookPage {
-    padding-top: 24vh;
-}
-
 .titleCategory {
-    position: absolute;
+    position: relative;
     font-size: 20vh;
-    top: 14vh;
+    top: 8vh;
     left: 6vw;
+    width: fit-content;
     font-weight: 900;
     line-height: 25vh;
     color: $bgColor;
@@ -39,19 +36,16 @@
         grid-auto-rows: 1fr;
         grid-gap: 6px 6px;
     }
-    
-    .bookPage {
-        padding-top: 90px;
-    }
 
     .titleCategory {
-        font-size: 10vh;
-        left: 45px;
-        top: 19px;
-        background: linear-gradient(to bottom, $textColor, transparent 65%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-stroke: 1vh transparent;
+        position: relative;
+        font-size: 9vh;
+        height: 10vh;
+        left: 30px;
+        top: -40px;
+        color: $textColor;
+        font-family: 'Outfit-Black';
+        background: none;
     }
 }
 

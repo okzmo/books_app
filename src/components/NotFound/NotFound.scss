@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93vh;
+    width: 100vw;
+    gap: 10vw
+}
+
+.notFoundBig {
+    font-size: 15vh;
+    line-height: 14vh;
+    width: min-content;
+    font-family: 'Outfit-Black';
+}
+
+.notFoundSmall {
+    font-size: 3vh;
+    font-family: 'Outfit-Medium';
+}
+
+#notFoundDecoration {
+    width: 30vw;
+    height: auto;
+}
+
+@media screen and (max-width: 768px){
+    #notFoundDecoration {
+        display: none;
+    }
+
+    .notFoundBig {
+        font-size: 85px;
+        line-height: 82px;
+    }
+
+    .notFoundSmall {
+        padding-top: 10px;
+        font-size: 17px;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./books.scss";
 import { AppContext } from "../../FetchData";
@@ -6,17 +6,7 @@ import { Book } from "../Book/Book";
 import SearchBarPhone from "../SearchBarPhone/SearchBarPhone";
 import { ThemeContext } from "../../App";
 import LoadMore from "../LoadMore/LoadMore";
-
-const Default = () => {
-	return (
-		<>
-			<h1 className="titlePageCategory">BOOKS</h1>
-			<p className="explication">
-				Please, enter the name of the book or work you’re searching
-			</p>
-		</>
-	);
-};
+import { NotFoundBook } from "../NotFound/NotFoundBook";
 
 function Books() {
 	const { books, loading, loadMore, fetchBooks, setSearchText } =
@@ -44,18 +34,22 @@ function Books() {
 
 	if (loading) return "loading...";
 
+	console.log(window.matchMedia("(max-width: 768px)").matches);
+
 	return (
 		<div className="bookPage" id={theme}>
 			<div className="booklist__wrapper">
 				{anyBooks ? (
-					<div className="booklist">
+					<>
 						<div className="titleCategory">BOOKS</div>
-						{allBooks.map((book, index) => {
-							return <Book key={index} book={book} />;
-						})}
-					</div>
+						<div className="booklist">
+							{allBooks.map((book, index) => {
+								return <Book key={index} book={book} />;
+							})}
+						</div>
+					</>
 				) : (
-					<Default />
+					<NotFoundBook />
 				)}
 			</div>
 			<SearchBarPhone />
