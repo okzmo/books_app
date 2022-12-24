@@ -8,8 +8,6 @@ function SearchBarPhone() {
 	const searchRef = useRef("");
 	const navigate = useNavigate();
 
-	useEffect(() => searchRef.current.focus(), []);
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!(searchRef.current.value.trim().length === 0)) {

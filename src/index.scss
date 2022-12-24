@@ -15,6 +15,18 @@
 }
 
 .link {
+    &:focus {
+        transition: text-decoration 0.25s ease;
+        outline: none;
+        text-decoration: underline;
+    }
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.linkLogo {
     text-decoration: none;
     &:focus {
         transition: text-decoration 0.25s ease;

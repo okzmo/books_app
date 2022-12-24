@@ -45,8 +45,6 @@ const BooksContext = ({ children }) => {
 					return book.cover_id !== undefined;
 				});
 
-				console.log(allBooks);
-
 				setBooks(allBooks);
 			} else {
 				setBooks([]);

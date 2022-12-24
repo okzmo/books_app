@@ -52,7 +52,7 @@ function Navbar() {
 
 	return (
 		<div className="navbar" id={theme}>
-			<Link className="link" to="/">
+			<Link className="linkLogo" to="/">
 				<h1 className="logo">BK</h1>
 			</Link>
 			<div className="navbarRightSide__wrapper">
@@ -60,7 +60,7 @@ function Navbar() {
 					<input
 						type="search"
 						name="searchBar"
-						placeholder="The lord of the rings"
+						placeholder="The lord of the rings..."
 						id="searchBar"
 						ref={searchRef}
 					/>

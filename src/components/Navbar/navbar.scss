@@ -9,7 +9,6 @@
     width: 100%;
     height: 7vh;
     padding: 2vh 3vw 0 3vw;
-    font-family: Outfit;
     .navbarRightSide__wrapper {
         display: flex;
         gap: 1vw;
@@ -20,9 +19,9 @@
             border: none;
             border-radius: 0.4vw;
             padding: 1vh 1vw 1vh 1vw;
-            font-size: 1.5vh;
-            width: 12vw;
-            font-family: Outfit;
+            font-size: 2vh;
+            width: 15vw;
+            font-family: 'Outfit-Regular';
             &:focus {
                 color: $textColorSearch;
             }
@@ -41,6 +40,7 @@
 
 .logo {
     font-size: 3vh;
+    font-family: 'Outfit-Bold';
 }
 
 

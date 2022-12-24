@@ -8,7 +8,6 @@ function LoadMore() {
 	React.useEffect(() => {
 		const observer = new IntersectionObserver((entries) => {
 			if (entries[0].isIntersecting) {
-				console.log("fin");
 				fetchNewBooks();
 			}
 		});
@@ -16,7 +15,7 @@ function LoadMore() {
 		observer.observe(target.current);
 	}, []);
 
-	return <div ref={target} style={{ minHeight: 100 }}></div>;
+	return <div ref={target} style={{ minHeight: 200 }}></div>;
 }
 
 export default LoadMore;

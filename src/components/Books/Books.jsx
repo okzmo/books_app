@@ -34,8 +34,6 @@ function Books() {
 
 	if (loading) return "loading...";
 
-	console.log(window.matchMedia("(max-width: 768px)").matches);
-
 	return (
 		<div className="bookPage" id={theme}>
 			<div className="booklist__wrapper">
