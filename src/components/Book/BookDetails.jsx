@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Book.scss";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../App";
+import { NotFoundBook } from "../NotFound/NotFoundBook";
 
 function BookDetails() {
 	const { id } = useParams();
@@ -100,46 +101,53 @@ function BookDetails() {
 	};
 
 	return (
-		<div className="bookDetails__container" id={theme}>
-			<div className="bookDetailsVisuals">
-				<div className="backCover">
-					<img src={book?.cover_img} id="backCoverImg" />
-					<img src={book?.cover_img} alt="Book cover" id="frontCoverImg" />
+		<>
+			{book !== null ? (
+				<div className="bookDetails__container" id={theme}>
+					<div className="bookDetailsVisuals">
+						<div className="backCover">
+							<img src={book?.cover_img} id="backCoverImg" />
+							<img src={book?.cover_img} alt="Book cover" id="frontCoverImg" />
+						</div>
+					</div>
+					<div className="bookDetailsElements">
+						<h2 className="bookTitle">{book?.title}</h2>
+						<p className="bookDescription">
+							{book?.description.length > 500 ? (
+								<span className="bookLongDescription">
+									{readMore
+										? book?.description
+										: book?.description.split(" ").slice(0, 50).join(" ")}{" "}
+									<button id="readMoreBtn" onClick={handleReadMore}>
+										Read More...
+									</button>
+								</span>
+							) : (
+								book?.description
+							)}
+						</p>
+						<div className="subjectBox">
+							<p className="bookPlaces">
+								<span className="importantInfo">Places</span> :{" "}
+								{book?.subject_places}
+							</p>
+							<p className="bookTime">
+								<span className="importantInfo">Time</span> :{" "}
+								{book?.subject_times}
+							</p>
+							<p className="bookAuthor">
+								<span className="importantInfo">Author</span> :{" "}
+								<Link className="link" to={`/author/${author?.id}`} {...author}>
+									{author?.name}
+								</Link>
+							</p>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div className="bookDetailsElements">
-				<h2 className="bookTitle">{book?.title}</h2>
-				<p className="bookDescription">
-					{book?.description.length > 500 ? (
-						<span className="bookLongDescription">
-							{readMore
-								? book?.description
-								: book?.description.split(" ").slice(0, 50).join(" ")}{" "}
-							<button id="readMoreBtn" onClick={handleReadMore}>
-								Read More...
-							</button>
-						</span>
-					) : (
-						book?.description
-					)}
-				</p>
-				<div className="subjectBox">
-					<p className="bookPlaces">
-						<span className="importantInfo">Places</span> :{" "}
-						{book?.subject_places}
-					</p>
-					<p className="bookTime">
-						<span className="importantInfo">Time</span> : {book?.subject_times}
-					</p>
-					<p className="bookAuthor">
-						<span className="importantInfo">Author</span> :{" "}
-						<Link className="link" to={`/author/${author?.id}`} {...author}>
-							{author?.name}
-						</Link>
-					</p>
-				</div>
-			</div>
-		</div>
+			) : (
+				<NotFoundBook />
+			)}
+		</>
 	);
 }
 
