@@ -19,7 +19,6 @@ function BookDetails() {
 			try {
 				const resBook = await fetch(`https://openlibrary.org/works/${id}.json`);
 				const dataBook = await resBook.json();
-				console.log(dataBook);
 
 				if (dataBook) {
 					const {
@@ -60,7 +59,6 @@ function BookDetails() {
 						)}.json`
 					);
 					const dataAuthor = await resAuthor.json();
-					console.log(dataAuthor);
 
 					if (dataAuthor) {
 						const { name } = dataAuthor;
