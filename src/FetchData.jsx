@@ -13,7 +13,7 @@ const BooksContext = ({ children }) => {
 		setLoading(true);
 		try {
 			const res = await fetch(
-				`http://openlibrary.org/search.json?limit=15&offset=0&title=${searchText}`
+				`https://openlibrary.org/search.json?limit=15&offset=0&title=${searchText}`
 			);
 			const data = await res.json();
 			const { docs } = data;
@@ -61,7 +61,7 @@ const BooksContext = ({ children }) => {
 		setLoadMore(true);
 		try {
 			const res = await fetch(
-				`http://openlibrary.org/search.json?limit=15&offset=${offset}&title=${searchText}`
+				`https://openlibrary.org/search.json?limit=15&offset=${offset}&title=${searchText}`
 			);
 			const data = await res.json();
 			const { docs } = data;
