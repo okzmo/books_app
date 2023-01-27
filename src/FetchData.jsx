@@ -47,7 +47,7 @@ const BooksContext = ({ children }) => {
 
 				setBooks(allBooks);
 			} else {
-				setBooks([]);
+				setBooks(undefined);
 			}
 			setLoading(false);
 		} catch (error) {

@@ -14,7 +14,6 @@ function Books() {
 	const { theme } = useContext(ThemeContext);
 	const { id } = useParams();
 	const nameBook = id.replaceAll("-", " ");
-	let anyBooks = books.length > 0;
 
 	useEffect(() => {
 		setSearchText(nameBook);
@@ -22,6 +21,9 @@ function Books() {
 
 	useEffect(() => {
 		fetchBooks();
+		setTimeout(() => {
+			console.log(books);
+		}, 1000);
 	}, [fetchBooks]);
 
 	const allBooks = books.map((book) => {
@@ -37,7 +39,7 @@ function Books() {
 	return (
 		<div className="bookPage" id={theme}>
 			<div className="booklist__wrapper">
-				{anyBooks ? (
+				{books && books.length > 0 ? (
 					<>
 						<div className="titleCategory">BOOKS</div>
 						<div className="booklist">
@@ -51,8 +53,7 @@ function Books() {
 				)}
 			</div>
 			<SearchBarPhone />
-			{loadMore && <div>Load more</div>}
-			{anyBooks && !loadMore && <LoadMore />}
+			{books && !loadMore && <LoadMore />}
 		</div>
 	);
 }

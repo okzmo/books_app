@@ -26,9 +26,15 @@
         font-family: Outfit;
         &:focus {
             color: #9cb0c2;
+            font-family: 'Outfit-Medium';
             width: 60vw;
             font-size: 3vh;
             padding: 15px 10px 15px 10px;
         }
+    }
+
+    #searchBarPhone::-webkit-input-placeholder {
+        color: $textColor;
+        font-family: 'Outfit-Medium';
     }
 }
